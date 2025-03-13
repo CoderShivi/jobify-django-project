@@ -1,0 +1,9 @@
+virt/
+__pycache__/
+*.pyc
+*.pyo
+*.log
+db.sqlite3
+media/
+.vscode/
+.env
