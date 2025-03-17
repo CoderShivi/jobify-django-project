@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block title %}
+Job Portal
+{% endblock %}
+ 
+{% block content %}
+<div class="container">
+    {% for skill in skills_list %}
+    <div class="row">
+        <div class="col">
+            {{skill.id}}
+        </div>
+        <div class="col">
+            {{skill.title}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
