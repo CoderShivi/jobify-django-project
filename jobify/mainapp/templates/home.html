@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
- 
 {% block title %}
 Job Portal
 {% endblock %}
-
 {% block content %}
-<div>
-<div></div>
-<div></div>
+<div class="home-container">
+<img src="{% static 'images/job-search.avif' %}" width="1200px"  alt="">
+
+<div class="home-jobs">
+    {% include "jobs.html" %}
 </div>
+</div>
+
 {% endblock %}

@@ -1,21 +1,34 @@
-{% extends 'base.html' %}
 {% load static %}
- 
-{% block title %}
-Job Portal
-{% endblock %}
- 
-{% block content %}
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Portal</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+    <!-- Job Cards -->
     {% for job in jobs_list %}
-    <div class="row">
-        <div class="col">
-            {{job.id}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ job.title }}</h5>
+            {% for jobType in job.jobType.all %}
+            <p class="card-text">{{ jobType.title }}</p>
+            {% endfor %}
+            <p class="card-text"><b>Vacancies - </b>{{ job.vacancies }}</p>
+            <p class="card-text"><b>JD-</b>{{ job.jd }}</p>
+            <span><b>Skills - </b></span>
+            {% for skill in job.skills.all %}
+            <span class="card-text">{{ skill.title }}</span>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <p class="card-text"><b>Open Date -</b> {{ job.open_date | date:"Y-m-d" }}</p>
+            <p class="card-text"><b>Close Date -</b> {{ job.close_date | date:"Y-m-d" }}</p>
+            <div class="card-text"><b>Salary -</b> {{ job.salary }} / {{ job.salary_based_on }}</div>
+            
         </div>
-        <div class="col">
-            {{job.title}}
-        </div>
+        <a href="{% url 'apply' %}" class="btn1"  >Apply</a>
     </div>
     {% endfor %}
-</div>
-{% endblock %}
+</body>
+</html>

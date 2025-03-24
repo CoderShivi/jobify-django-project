@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+apply Successfully
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-success">Application Submitted Successfully!</h2>
+    <a href="{% url 'apply' %}" class="btn btn-primary mt-3">Submit Another Application</a>
+</div>
+{% endblock %}
