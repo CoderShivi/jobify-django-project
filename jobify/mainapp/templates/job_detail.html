@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+{{job.title}}
+{% endblock %}
+{% block content %}
+{{job.jd}}
+{{job.pk}}
+{{job.title}}
+{% if user.is_authenticated %}
+{% if user.is_staff %}
+<a href="{% url 'delete_job' job.pk %}" type="button">Delete Jobs</a>
+<a href="{% url 'UpdateJobs' job.pk %}" type="button">Edit Jobs</a>
+{% else %}
+<a href="{% url 'apply' %}" type="button">Apply</a>
+{% endif %}
+{% endif %}
+{% endblock %}

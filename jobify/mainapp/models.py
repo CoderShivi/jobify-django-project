@@ -20,6 +20,8 @@ class SalaryType(models.TextChoices):
     PER_MONTH = 'Per Month'
     PER_YEAR = 'Per Year'
 
+
+
 class Jobs(models.Model):
     title = models.CharField(max_length=255)
     vacancies = models.IntegerField()
@@ -31,11 +33,16 @@ class Jobs(models.Model):
     jobType=models.ManyToManyField(JobType,related_name="job_type")
     salary_based_on = models.CharField(
         max_length=20,
-        choices=SalaryType.choices,
+        choices=SalaryType,
         default=SalaryType.PER_MONTH
     )
-
-    
+    # salary_based_on = models.CharField(max_length=20, 
+    #                                    choices=[
+    #                                        ('p','permonth'),
+    #                                        ('y','peryear')
+    #                                    ],
+    #                                    help_text="Enter salary type"
+    #                                    )
 
     def __str__(self):
         return self.title

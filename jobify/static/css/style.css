@@ -24,11 +24,11 @@ body {
           }
           font-weight: 500;
           font-style: italic;
-          color: #0b124c;
+          color: #36384d;
           margin-left: 20px;
         }
         .navbar-nav .nav-item .nav-link {
-          color: rgba(53, 47, 47, 0.708);
+          color:#0b124c;
           /* margin-left: 50px; */
           justify-content: space-between;
           font-weight: 600px;
@@ -82,16 +82,18 @@ body {
       flex-direction: column;
       width: 90%;
     }
-    .card {
+    /* .card {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 300px;
-      height: 380px;
+      height: 280px;
       margin: 10px;
       background-color: #7ab2be88;
       .card-body {
         .card-title {
+          height: 35px;
+          color: #0b124c;
           background-color: aliceblue;
           display: flex;
           align-items: center;
@@ -99,6 +101,9 @@ body {
           padding: 5px;
           border-radius: 5px;
           box-shadow: 1px 1px 1px 1px #888888;
+        }
+        .card-text{
+          color: #0b124c;
         }
       }
       .btn1 {
@@ -111,8 +116,9 @@ body {
         border-radius: 5px;
         width: 200px;
         margin-bottom: 20px;
+        
       }
-    }
+    } */
     .home-jobs {
       display: flex;
       justify-content: center;
@@ -121,5 +127,301 @@ body {
       margin-top: 10px;
       /* background-color: aquamarine; */
     }
+
+    /* General Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Job Cards Grid */
+.job-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Job Card */
+.job-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Job Header */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.job-header h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+/* Job Type Badge */
+.job-type {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+}
+
+.full-time {
+  background-color: #28a745;
+}
+
+.part-time {
+  background-color: #ffc107;
+}
+
+.freelance {
+  background-color: #17a2b8;
+}
+
+/* Job Location */
+.job-location {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.job-location i {
+  margin-right: 5px;
+}
+
+/* Job Description */
+.job-description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Job Footer */
+.job-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Job Category */
+.job-category {
+  font-size: 12px;
+  background-color: #f39c12;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Apply Button */
+.apply-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.apply-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .job-cards {
+    grid-template-columns: 1fr;
   }
+
+  .section-title {
+    font-size: 24px;
+  }
+}
+
+  }
+
+ /* General Footer Styling */
+.footer {
+  background: linear-gradient(135deg, #7ab2be88, #7ab2be88);
+  color: #0b124c;
+  padding: 50px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Footer Row - Flex Layout */
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+/* Footer Column Style */
+.footer-col {
+  width: 23%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background-color: #0b124c;
+  display: block;
+  margin-top: 5px;
+}
+
+/* About Us Text */
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #0b124c;
+}
+
+/* Quick Links & Contact */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #0b124c;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-col ul li a:hover {
+  color: #0b124c;
+}
+
+/* Newsletter Form */
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.newsletter-form input {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 10px 15px;
+  background-color: #7ab2be88;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.newsletter-form button:hover {
+  background-color: #7ab2be88;
+}
+
+/* Social Media Icons */
+.social-icons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 18px;
+  color: #0b124c;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #0b124c;
+  transform: translateY(-5px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #0b124c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .newsletter-form {
+    justify-content: center;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+  }
+}
 }

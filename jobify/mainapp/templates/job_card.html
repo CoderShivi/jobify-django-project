@@ -1,0 +1,51 @@
+<!-- <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ job.title }}</h5>
+        {% for jobType in job.jobType.all %}
+        <p class="card-text">{{ jobType.title }} <span style="margin-left: 30px;"> {{ job.open_date | date:"Y-m-d" }}</span></p>
+        {% endfor %}
+        <p class="card-text"><b>Vacancies - </b>{{ job.vacancies }}</p>
+        <p class="card-text"><b>JD-</b>{{ job.jd }}</p>
+        <span><b>Skills - </b></span>
+        {% for skill in job.skills.all %}
+        <span class="card-text">{{ skill.title }}</span>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+        <p class="card-text"><b>Close Date -</b> {{ job.close_date | date:"Y-m-d" }}</p>
+        <div class="card-text"><b>Salary -</b> {{ job.salary }} / {{ job.salary_based_on }}</div>
+        
+    </div>
+  
+    <a href="{% url 'jobdetail' job.pk %}" class="btn1"  >Show Details</a>
+   
+</div> -->
+
+
+
+      <div class="job-cards">
+        <!-- Job Card 1 -->
+        <div class="job-card">
+          <div class="job-header">
+            <h3>{{job.title}}</h3>
+            {% for jobType in job.jobType.all %}
+            <span class="job-type full-time">{{jobType.title}}</span>
+            {% endfor %}
+          </div>
+          <p class="job-location">
+            <i class="fas fa-map-marker-alt"></i> New York, USA
+          </p>
+          <p class="job-description">
+            {{job.jd}}
+          </p>
+          <div class="job-footer">
+            <span class="job-category">Tech</span>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+        </div>
+  
+        
+  
+       
+      </div>
+    </div>
+  </section>
+  

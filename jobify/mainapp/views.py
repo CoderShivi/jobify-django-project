@@ -5,7 +5,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView,TemplateView
 from .models import *
 from .forms import ApplicationForm
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 # Create your views here.
 
 def homeView(request):
@@ -47,4 +47,28 @@ class AddJobs(CreateView):
     model=Jobs
     fields=['title','vacancies','jd','skills','close_date','salary','jobType','salary_based_on']
     template_name='addJobs.html'
+    success_url=reverse_lazy('home')
+
+# Read - Show job detail
+class JobDetails(DetailView):
+    model=Jobs
+    template_name='job_detail.html'
+    context_object_name='job'
+    
+    
+
+#Update ->
+class EditJobs(UpdateView):
+    model=Jobs
+    fields='__all__'
+    template_name='edit_jobs.html'
+
+    def get_success_url(self):
+        return reverse('jobdetail',kwargs={'pk':self.object.pk})
+
+
+# Delete Jobs
+class DeleteJobs(DeleteView):
+    model=Jobs
+    template_name='deletejobs.html'
     success_url=reverse_lazy('home')
