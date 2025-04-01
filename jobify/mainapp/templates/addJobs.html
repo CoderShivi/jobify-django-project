@@ -3,43 +3,76 @@
 Add Jobs
 {% endblock %}
 {% block content %}
-<form method="post" enctype="multipart/form-data" class="form" >
-    {% csrf_token %}
+<div id="addjobs">
+<div class="container">
+    <div class="form-card">
+        <h2>Add Job Details</h2>
+        <form method="post" enctype="multipart/form-data" class="form">
+            {% csrf_token %}
+            
+            <!-- Display Form Errors -->
+            <div class="error-messages">
+                {{ form.errors }}
+            </div>
+            
+            <!-- Title -->
+            <div class="form-group">
+                <label for="id_title">Title:</label>
+                {{ form.title }}
+            </div>
 
-    {{form.errors}}
-    <div class="form-group">
-        <label for="id_name">Title:</label>
-         {{form.title}}
+            <!-- Location -->
+            <div class="form-group">
+                <label for="id_location">Location:</label>
+                {{ form.location }}
+            </div>
+
+            <!-- Vacancies -->
+            <div class="form-group">
+                <label for="id_vacancies">Vacancies:</label>
+                {{ form.vacancies }}
+            </div>
+
+            <!-- Job Description -->
+            <div class="form-group">
+                <label for="id_jd">Job Description:</label>
+                {{ form.jd }}
+            </div>
+
+            <!-- Skills -->
+            <div class="form-group">
+                <label for="id_skills">Skills:</label>
+                {{ form.skills }}
+            </div>
+
+            <!-- Close Date -->
+            <div class="form-group">
+                <label for="id_close_date">Close Date:</label>
+                {{ form.close_date }}
+            </div>
+
+            <!-- Salary -->
+            <div class="form-group">
+                <label for="id_salary">Salary:</label>
+                {{ form.salary }}
+            </div>
+
+            <!-- Job Type -->
+            <div class="form-group">
+                <label for="id_jobType">Job Type:</label>
+                {{ form.jobType }}
+            </div>
+
+            <!-- Salary Type -->
+            <div class="form-group">
+                <label for="id_salary_based_on">Salary Type:</label>
+                {{ form.salary_based_on }}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Add Job</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="id_name"> Vacancies:</label>
-         {{form.vacancies}}
-    </div>
-    <div class="form-group">
-        <label for="id_name">Job Description:</label>
-         {{form.jd}}
-    </div>
-    <div class="form-group">
-        <label for="id_name">Skills:</label>
-         {{form.skills }}
-    </div>
-    
-    <div class="form-group">
-        <label for="id_name">close_date</label>
-         {{form.close_date}}
-    </div>
-    <div class="form-group">
-        <label for="id_name">Salary:</label>
-         {{form.salary}}
-    </div>
-    <div class="form-group">
-        <label for="id_name">Job_type:</label>
-         {{form.jobType}}
-    </div>
-    <div class="form-group">
-        <label for="id_name">Salary_type:</label>
-         {{form.salary_based_on}}
-    </div>
-    <button type="submit">Add Product</button>
-</form>
+</div>
+</div>
 {% endblock %}

@@ -1,17 +1,55 @@
 {% extends 'base.html' %}
 {% block title %}
-{{job.title}}
+{{ job.title }}
 {% endblock %}
+
 {% block content %}
-{{job.jd}}
-{{job.pk}}
-{{job.title}}
-{% if user.is_authenticated %}
-{% if user.is_staff %}
-<a href="{% url 'delete_job' job.pk %}" type="button">Delete Jobs</a>
-<a href="{% url 'UpdateJobs' job.pk %}" type="button">Edit Jobs</a>
-{% else %}
-<a href="{% url 'apply' %}" type="button">Apply</a>
-{% endif %}
-{% endif %}
+<div id="jobdetail">
+    <div class="container">
+        <div class="job-detail-card">
+            <h2>{{ job.title }}</h2>
+            
+            <div class="job-meta">
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Vacancies:</strong> {{ job.vacancies }}</p>
+                <p><strong>Salary:</strong> {{ job.salary }} {{ job.salary_based_on }}</p>
+                {% for jobType in job.jobType.all %}
+                <p><strong>Job Type:</strong> {{ jobType.title }}</p>
+                {% endfor %}
+                <p><strong>Application Deadline:</strong> {{ job.close_date }}</p>
+            </div>
+    
+            <!-- Job Description -->
+            <div class="job-section">
+                <h6>Job Description</h6>
+                <p>{{ job.jd }}</p>
+            </div>
+    
+            <!-- Skills Section -->
+
+            <div class="job-section">
+                <h6>Required Skills</h6>
+                <div class="skills-container">
+                    {% for skill in job.skills.all %}
+                    <span class="skill-btn">{{ skill.title }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+    
+            <!-- Button Group for Authenticated Users -->
+            {% if user.is_authenticated %}
+                <div class="btn-group">
+                    {% if user.is_staff %}
+                        <a href="{% url 'delete_job' job.pk %}" class="btn btn-danger">Delete Job</a>
+                        <a href="{% url 'UpdateJobs' job.pk %}" class="btn btn-edit">Edit Job</a>
+                    {% else %}
+                        <a href="{% url 'apply' %}" class="btn btn-apply">Apply Now</a>
+                    {% endif %}
+                </div>
+            {% else %}
+            <p class="login-reminder">Please <a href="{% url 'login' %}">login</a> to apply.</p>
+            {% endif %}
+        </div>
+    </div>
+    </div>
 {% endblock %}

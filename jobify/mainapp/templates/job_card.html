@@ -15,12 +15,11 @@
         
     </div>
   
-    <a href="{% url 'jobdetail' job.pk %}" class="btn1"  >Show Details</a>
-   
+    <a href="{% url 'jobdetail' job.pk %}" class="btn1"  >Show Details</a>  
 </div> -->
 
-
-
+<section>
+  <div>
       <div class="job-cards">
         <!-- Job Card 1 -->
         <div class="job-card">
@@ -31,20 +30,16 @@
             {% endfor %}
           </div>
           <p class="job-location">
-            <i class="fas fa-map-marker-alt"></i> New York, USA
+            <i class="fas fa-map-marker-alt"></i> {{job.location}}
           </p>
           <p class="job-description">
             {{job.jd}}
           </p>
           <div class="job-footer">
-            <span class="job-category">Tech</span>
-            <a href="#" class="apply-btn">Apply Now</a>
+            
+            <a href="{% url 'jobdetail' job.pk %}" class="apply-btn">Apply Now</a>
           </div>
-        </div>
-  
-        
-  
-       
+        </div>       
       </div>
     </div>
   </section>

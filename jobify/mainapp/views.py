@@ -45,7 +45,7 @@ class ApplicationSuccessView(TemplateView):
 # Create Jobs 
 class AddJobs(CreateView):
     model=Jobs
-    fields=['title','vacancies','jd','skills','close_date','salary','jobType','salary_based_on']
+    fields=['title','location', 'vacancies','jd','skills','close_date','salary','jobType','salary_based_on']
     template_name='addJobs.html'
     success_url=reverse_lazy('home')
 

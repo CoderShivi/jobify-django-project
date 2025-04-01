@@ -31,18 +31,13 @@ class Jobs(models.Model):
     close_date = models.DateTimeField()
     salary=models.DecimalField(max_digits=10,decimal_places=2,null=True)
     jobType=models.ManyToManyField(JobType,related_name="job_type")
+    location=models.CharField(max_length=255,default="NA")
     salary_based_on = models.CharField(
         max_length=20,
         choices=SalaryType,
         default=SalaryType.PER_MONTH
     )
-    # salary_based_on = models.CharField(max_length=20, 
-    #                                    choices=[
-    #                                        ('p','permonth'),
-    #                                        ('y','peryear')
-    #                                    ],
-    #                                    help_text="Enter salary type"
-    #                                    )
+      
 
     def __str__(self):
         return self.title
