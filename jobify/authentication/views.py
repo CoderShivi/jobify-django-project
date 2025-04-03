@@ -1,8 +1,11 @@
 from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
+from django.views.generic import UpdateView
 from .forms import CustumUserCreationForm
 from django.contrib.auth.views import LoginView
+from django.shortcuts import render
 # Create your views here.
 
 class SignupView(CreateView):
@@ -18,3 +21,5 @@ class SignupView(CreateView):
     
 class Login(LoginView):
     template_name = "login.html"
+
+

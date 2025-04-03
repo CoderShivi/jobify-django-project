@@ -1,7 +1,9 @@
-    <!-- Job Cards -->
-    <section class="job-listings">
-        <div class="container">
-          <h2 class="section-title">Latest Job Openings</h2>
-    {% for job in jobs_list %}
-        {% include 'job_card.html' %}
+<!-- Job Cards -->
+<div class="container">
+  <h2 class="title">Latest Job Openings</h2>
+  <div class="job-cards">
+    {% for job in jobs_list %} 
+    {% include 'job_card.html' %} 
     {% endfor %}
+  </div>
+</div>

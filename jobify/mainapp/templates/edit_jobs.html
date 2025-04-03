@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
-{% block title %}
-Edit Job{{Jobs.title}}
-{% endblock %}
+{% block title %}Edit Job - {{ job.title }}{% endblock %}
+
 {% block content %}
-<form method="post" enctype="multipart/form-data" class="form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Edit Jobs</button>
-</form>
+<div class="edit-job-container">
+    <h2>Edit Job - {{ job.title }}</h2>
+    <form method="post" enctype="multipart/form-data" class="edit-job-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        
+        <button type="submit" class="btn btn-submit">Save Changes</button>
+    </form>
+</div>
 {% endblock %}

@@ -43,7 +43,7 @@
                         <a href="{% url 'delete_job' job.pk %}" class="btn btn-danger">Delete Job</a>
                         <a href="{% url 'UpdateJobs' job.pk %}" class="btn btn-edit">Edit Job</a>
                     {% else %}
-                        <a href="{% url 'apply' %}" class="btn btn-apply">Apply Now</a>
+                        <a href="{% url 'apply' job.id %}" class="btn btn-apply">Apply Now</a>
                     {% endif %}
                 </div>
             {% else %}

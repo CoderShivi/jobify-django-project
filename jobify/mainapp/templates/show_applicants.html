@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Applicants for {{ job.title }}
+{% endblock %}
+
+{% block content %}
+<div id="show-applicants">
+    <h2 class="title">Applicants for <span class="job-title">{{ job.title }}</span></h2>
+    <p class="total-applicants">Total Applicants: <strong>{{ applicants|length }}</strong></p>
+
+    {% if applicants %}
+    <div class="applicant-cards">
+        {% for applicant in applicants %}
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ applicant.name }}</h3>
+                <p class="apply-date">Applied on: {{ applicant.apply_date }}</p>
+            </div>
+            <div class="card-body">
+                <p><strong>Email:</strong> {{ applicant.email }}</p>
+                <p><strong>Phone:</strong> {{ applicant.phone }}</p>
+                <p><strong>Cover Letter:</strong> {{ applicant.cover_letter|default:"No cover letter" }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{{ applicant.resume.file.url }}" class="btn download-btn" download>📄 Download Resume</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-applicants">No applicants yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

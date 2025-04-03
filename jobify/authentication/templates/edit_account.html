@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h2>Editing username : Current username : {{u.username}}</h2>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{form.username}}
+        {{form.email}}
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+{% endblock %}

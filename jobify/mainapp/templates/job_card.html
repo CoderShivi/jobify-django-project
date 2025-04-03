@@ -11,36 +11,31 @@
         <span class="card-text">{{ skill.title }}</span>{% if not forloop.last %}, {% endif %}
         {% endfor %}
         <p class="card-text"><b>Close Date -</b> {{ job.close_date | date:"Y-m-d" }}</p>
-        <div class="card-text"><b>Salary -</b> {{ job.salary }} / {{ job.salary_based_on }}</div>
-        
-    </div>
-  
+        <div class="card-text"><b>Salary -</b> {{ job.salary }} / {{ job.salary_based_on }}</div>    
+    </div>  
     <a href="{% url 'jobdetail' job.pk %}" class="btn1"  >Show Details</a>  
 </div> -->
 
-<section>
-  <div>
-      <div class="job-cards">
-        <!-- Job Card 1 -->
-        <div class="job-card">
-          <div class="job-header">
-            <h3>{{job.title}}</h3>
-            {% for jobType in job.jobType.all %}
-            <span class="job-type full-time">{{jobType.title}}</span>
-            {% endfor %}
-          </div>
-          <p class="job-location">
-            <i class="fas fa-map-marker-alt"></i> {{job.location}}
-          </p>
-          <p class="job-description">
-            {{job.jd}}
-          </p>
-          <div class="job-footer">
-            
-            <a href="{% url 'jobdetail' job.pk %}" class="apply-btn">Apply Now</a>
-          </div>
-        </div>       
-      </div>
+  <!-- Job Card 1 -->
+  <div class="job-card">
+    <div class="job-header">
+      <h3>{{job.title}}</h3>
+      {% for jobType in job.jobType.all %}
+      <span class="job-type full-time">{{jobType.title}}</span>
+      {% endfor %}
     </div>
-  </section>
-  
+    <p class="job-location">
+      <i class="fas fa-map-marker-alt"></i> {{job.location}}
+    </p>
+    <p class="job-description">{{job.jd}}</p>
+    <div class="job-footer">
+      {% if user.is_staff %}
+      <a href="{% url 'jobdetail' job.pk %}" class="apply-btn">Show Jobs</a>
+      <a href="{% url 'job_applicants' job.id %}" class="apply-btn">Show Applicants</a>
+
+      {% else %}
+      <a href="{% url 'jobdetail' job.pk %}" class="apply-btn">Apply Now</a>
+      {% endif %}
+    </div>
+  </div>
+
